@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <math.h>
 #include <vector>
+#include <time.h>
 
 using namespace std;
 
@@ -54,7 +55,7 @@ inline double impliedVolatility(const double & S, const double & X, const double
         if(mid_vol == prev_mid_vol) { break; }
         prev_mid_vol = mid_vol;
     }
-    cout << "Iterations to converge: " << iterations << endl;
+    //cout << "Iterations to converge: " << iterations << endl;
     return low_vol;
 }
 
@@ -73,22 +74,26 @@ int main(int argc, char ** argv) {
     //end timing
     //generate surfaces
     vector<double> X;
-    for(int i = 34; i < 38; ++i) {
+    for(double i = 5; i < 15; i += 0.01) {
         X.push_back(i);
     }
     vector<double> T;
-    for(int i = 2; i < 3; ++i) {
+    for(double i = 0.1; i <= 2; i += 0.01) {
         T.push_back(i);
     }
-    double S = 30;
-    double r = 0.05;
-    double d = 0.02;
-    double p = 3;
-    cout << impliedVolatility(S, 35, 2, r, d, p) << endl;
+    double S = 10;
+    double r = 0.02;
+    double d = 0.05;
+    double p = 1;
+    cout << "S: " << S << " r: " << r << " d: " << d << " p: " << p << endl;
+    cout << "Strike Price, Time to Maturity, Implied Volatility," << endl;
+    clock_t t = clock();
     for(int i = 0; i < X.size(); ++i) {
         for(int j = 0; j < T.size(); ++j) {
-            cout << "X: " << X[i] << " T: " << T[j] << " iv: " << impliedVolatility(S, X[i], T[i], r, d, p) << endl;
+            cout << X[i] << ", " << T[j] << ", " << impliedVolatility(S, X[i], T[j], r, d, p) << "," << endl;
         }
     }
+    t = clock() - t;
+    cout << ((float)t)/CLOCKS_PER_SEC << endl;
     return 0;
 } 

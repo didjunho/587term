@@ -1,0 +1,47 @@
+Serial Timing:
+8.1875s
+8.76562s
+8.1875s
+9.07812s
+8.20312s
+avg over 10 runs: 8.484372s
+
+Parallel Code t=2:
+4.44027s
+3.94533s
+3.96464s
+4.06232s
+4.19157s
+avg over 10 runs: 4.120826s
+
+Parallel Code t=4:
+3.23964s
+3.00522s
+3.04156s
+3.14741s
+3.14061s
+avg over 10 runs: 3.114888s
+
+Parallel Code t=8:
+3.03117s
+2.66977s
+2.77058s
+2.80632s
+2.68736s
+avg over 10 runs: 2.7930294s
+
+Parallel Code t=16:
+2.68897s
+3.04619s
+3.07562s
+2.74617s
+2.82084s
+avg over 10 runs: 2.875558s
+
+Parallel Code t=32:
+2.64925s
+2.65818s
+2.62069s
+2.58914s
+2.91407s
+avg over 10 runs: 2.686266s
